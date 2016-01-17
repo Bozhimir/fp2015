@@ -21,3 +21,15 @@
 
 (define (area a b c)
   (sqrt (* (half-perimeter a b c) (- (half-perimeter a b c) a) (- (half-perimeter a b c) b) (- (half-perimeter a b c) c))))
+
+(define (prime? n)
+  (define (prime-helper divisor)
+    (cond
+      [(= divisor 1) #t]
+      [(= (remainder n divisor) 0) #f]
+      [else (prime-helper (- divisor 1))]
+     )
+   )
+  (prime-helper (- n 1))
+ )
+  
